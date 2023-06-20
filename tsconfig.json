@@ -1,0 +1,20 @@
+{
+  "files": [],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "./auto-imports.d.ts"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    // Add the pinia-plugin-persist types definition file to your tsconfig file.
+    "types": ["pinia-plugin-persist"]
+  },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ]
+}
