@@ -12,6 +12,8 @@ import 'element-plus/theme-chalk/el-message.css'
 import 'element-plus/theme-chalk/el-message-box.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
+import '@/styles/base.css'
+
 const app = createApp(App)
 
 app.use(pinia)
