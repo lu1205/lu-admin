@@ -1,11 +1,7 @@
 <template>
-  <div style="height: 10vh;">MenuItem</div>
+  <div style="height: 10vh">MenuItem</div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style scoped lang="less">
-
-</style>
+<style scoped lang="less"></style>
