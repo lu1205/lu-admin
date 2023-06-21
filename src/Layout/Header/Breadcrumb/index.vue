@@ -9,6 +9,7 @@
         {{ item.meta.title }}
       </el-breadcrumb-item>
     </el-breadcrumb>
+    <div>其他标签</div>
   </div>
 </template>
 
@@ -35,6 +36,7 @@ watch(
 <style scoped lang="less">
 .breadcrumb-box {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 40px;
 }

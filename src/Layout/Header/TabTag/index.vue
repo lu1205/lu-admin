@@ -45,6 +45,7 @@ const removeTag = (path: string) => {
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
+  box-sizing: border-box;
   height: 100%;
   flex-direction: row;
   border-bottom: 1px solid #f4f5f6;
