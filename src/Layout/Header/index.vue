@@ -3,9 +3,9 @@
     <div style="border-bottom: 1px solid #f6f6f6">
       <Breadcrumb />
     </div>
-      <div style="flex: 1">
-          <TabTag />
-      </div>
+    <div style="flex: 1">
+      <TabTag />
+    </div>
   </div>
 </template>
 
@@ -16,8 +16,8 @@ import TabTag from './TabTag/index.vue'
 
 <style scoped lang="less">
 .header-box {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 </style>

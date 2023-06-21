@@ -25,7 +25,7 @@
     ],
     "*.{css,less,scss,vue,html}": [
       "pnpm run lint:style",
-      "git add"
+      "git add ."
     ]
   },
   "dependencies": {
