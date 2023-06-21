@@ -1,16 +1,19 @@
-import { ref } from 'vue'
 import { defineStore } from 'pinia'
+
 export const useTokenStore = defineStore(
   'tokenStore',
   () => {
     const token = ref('')
-    function addToken(tokenStr: string) {
+
+    function setToken(tokenStr: string) {
       token.value = tokenStr
     }
+
     function getToken() {
       return token.value
     }
-    return { token, addToken, getToken }
+
+    return { token, setToken, getToken }
   },
   {
     persist: {

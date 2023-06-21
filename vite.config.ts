@@ -56,7 +56,7 @@ export default defineConfig(({ command, mode }) => {
       }
     },
     server: {
-      port: 3000,
+      port: 3009,
       host: '127.0.0.1',
       open: true,
       https: false,
