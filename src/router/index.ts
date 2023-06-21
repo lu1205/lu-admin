@@ -6,7 +6,7 @@ import { storeToRefs } from 'pinia'
 import { useRoutesStore } from '@/stores/routes'
 import { useTokenStore } from '@/stores/token'
 
-const routes = [
+const routes: any[] = [
   {
     path: '/login',
     name: 'login',
@@ -15,7 +15,10 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
+    meta: {
+      title: '首页'
+    }
   }
 ]
 

@@ -10,6 +10,8 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import path from 'path'
 
+const pathSrc = path.resolve(__dirname, 'src')
+
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -19,6 +21,13 @@ export default defineConfig(({ command, mode }) => {
       vue(),
       vueJsx(),
       AutoImport({
+        // 目标文件
+        include: [
+          /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+          /\.vue$/,
+          /\.vue\?vue/, // index.vue
+          /\.md$/ // .md
+        ],
         // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
         imports: ['vue', 'vue-router'],
         // 解决eslint报错，先把 enabled 设置为true，重启项目生成.eslintrc-auto-import.json文件，之后设置为false(为true时每次加载都会重新生成文件，可能出现找不到的情况)

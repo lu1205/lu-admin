@@ -17,14 +17,9 @@ export const useRoutesStore = defineStore(
   },
   {
     persist: {
-      enabled: true,
-      strategies: [
-        {
-          key: 'routes',
-          storage: localStorage,
-          paths: ['routes']
-        }
-      ]
+      key: 'routes',
+      storage: localStorage,
+      paths: ['routes']
     }
   }
 )

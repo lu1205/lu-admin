@@ -41,6 +41,7 @@ import Main from './Content/index.vue'
     .main {
       height: 90vh;
       overflow: auto;
+      background-color: #f6f6f6;
     }
   }
 }
