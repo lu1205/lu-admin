@@ -7,7 +7,7 @@ export const useTagsStore = defineStore(
   () => {
     const tagArr = ref<any>([
       {
-        path: '/home',
+        path: '/',
         name: 'home',
         meta: { title: '首页' }
       }
@@ -28,7 +28,7 @@ export const useTagsStore = defineStore(
 
     async function removeTag(path: string) {
       // 不能删除首页
-      if (!path || path === '/home') return
+      if (!path || path === '/') return
       const length = tagArr.value.length
       const index = tagArr.value.findIndex((item: any) => item.path === path)
       index !== -1 && tagArr.value.splice(index, 1)
@@ -49,7 +49,7 @@ export const useTagsStore = defineStore(
     function resetTag() {
       tagArr.value = [
         {
-          path: '/home',
+          path: '/',
           name: 'home',
           meta: { title: '首页' }
         }

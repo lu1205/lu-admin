@@ -21,7 +21,7 @@ const removeTag = (route: any) => {
         class="mx-1"
         :style="{ marginLeft: index === 0 ? '16px' : '' }"
         :closable="
-          tag.path !== '/home' &&
+          tag.path !== '/' &&
           (hoverPath === tag.path || route.path === tag.path)
         "
         :type="tag.type"
