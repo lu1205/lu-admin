@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {useRouter} from "vue-router";
-import {ref,reactive} from "vue";
+import { useRouter } from 'vue-router'
+import { ref, reactive } from 'vue'
 
 const list = [
   {
