@@ -3,8 +3,8 @@ import NProgress from '@/utils/progress'
 import Home from '@/views/home.vue'
 import { handleRoutesToTree } from '@/utils/route'
 import { storeToRefs } from 'pinia'
-import { useRoutesStore } from '@/stores/routes'
-import { useTokenStore } from '@/stores/token'
+import { useRoutesStore } from '@/store/routes'
+import { useTokenStore } from '@/store/token'
 
 const routes: any[] = [
   {

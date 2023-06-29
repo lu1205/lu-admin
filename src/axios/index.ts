@@ -2,7 +2,7 @@ import axios from 'axios'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { storeToRefs } from 'pinia'
 
-import { useTokenStore } from '@/stores/token'
+import { useTokenStore } from '@/store/token'
 import { ElMessage } from 'element-plus'
 
 const { token } = storeToRefs(useTokenStore())

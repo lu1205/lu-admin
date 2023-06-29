@@ -13,8 +13,14 @@ export const useTokenStore = defineStore(
     function getToken() {
       return token.value
     }
+    /*
+     * 清除token
+     * */
+    function clearToken() {
+      token.value = ''
+    }
 
-    return { token, setToken, getToken }
+    return { token, setToken, getToken, clearToken }
   },
   {
     persist: {

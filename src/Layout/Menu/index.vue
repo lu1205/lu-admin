@@ -21,7 +21,7 @@ const route = useRoute()
 const router = useRouter()
 
 const isCollapse = ref(false)
-import { useRoutesStore } from '@/stores/routes'
+import { useRoutesStore } from '@/store/routes'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { handleRoutesToTree } from '@/utils/route'
@@ -30,7 +30,7 @@ const { routes } = storeToRefs(useRoutesStore())
 let menuList = ref([])
 menuList.value = handleRoutesToTree(routes.value)
 
-import { useTagsStore } from '@/stores/tags'
+import { useTagsStore } from '@/store/tags'
 
 const { addTag, getTags } = useTagsStore()
 const tagsArr = getTags()

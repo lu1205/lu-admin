@@ -2,58 +2,63 @@
 import { useRouter } from 'vue-router'
 import { ref, reactive } from 'vue'
 
-const list = [
-  {
-    id: 5,
-    parent_id: null,
-    path: '/system',
-    name: 'system',
-    redirect: '/system/user',
-    component: '',
-    title: '系统设置',
-    icon: '',
-    keep_alive: 0,
-    del: 0
-  },
-  {
-    id: 6,
-    parent_id: 5,
-    path: '/system/user',
-    name: 'user',
-    redirect: '',
-    component: 'system/user',
-    title: '用户管理',
-    icon: '',
-    keep_alive: 1,
-    del: 0
-  },
-  {
-    id: 7,
-    parent_id: 5,
-    path: '/system/menu',
-    name: 'menu',
-    redirect: '',
-    component: 'system/menu',
-    title: '菜单管理',
-    icon: '',
-    keep_alive: 1,
-    del: 0
-  }
-]
-import { useRoutesStore } from '@/stores/routes'
-import { useTokenStore } from '@/stores/token'
+import { useRoutesStore } from '@/store/routes'
+import { useTokenStore } from '@/store/token'
+import { useTagsStore } from '@/store/tags'
 
-const { setRoutes } = useRoutesStore()
-const { setToken } = useTokenStore()
+const { setRoutes,resetRoutes } = useRoutesStore()
+const { setToken,clearToken } = useTokenStore()
+const { resetTag } = useTagsStore()
 let form = reactive({ username: '', password: '' })
 const rules = []
 let formRef = ref<any>(null)
 const router = useRouter()
 const loginHandle = (formEl: any) => {
+  const list = [
+    {
+      id: 5,
+      parent_id: null,
+      path: '/system',
+      name: 'system',
+      redirect: '/system/user',
+      component: '',
+      title: '系统设置',
+      icon: '',
+      keep_alive: 0,
+      del: 0
+    },
+    {
+      id: 6,
+      parent_id: 5,
+      path: '/system/user',
+      name: 'user',
+      redirect: '',
+      component: 'system/user',
+      title: '用户管理',
+      icon: '',
+      keep_alive: 1,
+      del: 0
+    },
+    {
+      id: 7,
+      parent_id: 5,
+      path: '/system/menu',
+      name: 'menu',
+      redirect: '',
+      component: 'system/menu',
+      title: '菜单管理',
+      icon: '',
+      keep_alive: 1,
+      del: 0
+    }
+  ]
   setRoutes(list)
   setToken('token')
   router.push('/')
 }
+resetRoutes()
+resetTag()
+clearToken()
 </script>
 
 <template>

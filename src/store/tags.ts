@@ -22,6 +22,10 @@ export const useTagsStore = defineStore(
       tagArr.value.push(item)
     }
 
+    /*
+     * 重置tag
+     * */
+
     async function removeTag(path: string) {
       // 不能删除首页
       if (!path || path === '/home') return
@@ -39,6 +43,9 @@ export const useTagsStore = defineStore(
       }
     }
 
+    /*
+     * 重置Tag
+     * */
     function resetTag() {
       tagArr.value = [
         {

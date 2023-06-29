@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const router = useRouter()
 const route = useRoute()
-import { useTagsStore } from '@/stores/tags'
+import { useTagsStore } from '@/store/tags'
 
 let tagList = computed(() => useTagsStore().getTags())
 let hoverPath = ref<string>('')
