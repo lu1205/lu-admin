@@ -11,8 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import {useCachePagesStore} from "@/store/cachePages";
-
+import { useCachePagesStore } from '@/store/cachePages'
 </script>
 
 <style scoped lang="less"></style>

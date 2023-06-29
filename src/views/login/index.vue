@@ -7,7 +7,7 @@ import { useTokenStore } from '@/store/token'
 import { useTagsStore } from '@/store/tags'
 import { useCachePagesStore } from '@/store/cachePages'
 
-const { setRoutes, resetRoutes,initDynamicRoutes } = useRoutesStore()
+const { setRoutes, resetRoutes, initDynamicRoutes } = useRoutesStore()
 const { setToken, clearToken } = useTokenStore()
 const { resetTag } = useTagsStore()
 const { clearCachePage } = useCachePagesStore()

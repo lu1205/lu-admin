@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { isRef, ref } from "vue";
-import {useRouter} from "vue-router";
+import { isRef, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import MenuItem from './Item/index.vue'
 
 const route = useRoute()
@@ -26,7 +26,7 @@ import { useRoutesStore } from '@/store/routes'
 import { useRoute } from 'vue-router'
 import { handleRoutesToTree } from '@/utils/route'
 
-const {getRoutes} = useRoutesStore()
+const { getRoutes } = useRoutesStore()
 let menuList = ref(handleRoutesToTree(getRoutes()))
 
 import { useTagsStore } from '@/store/tags'
@@ -43,7 +43,7 @@ const selectPath = (indexPath: string) => {
     routeItem = findRouteByIndexPath(indexPath, allRoutes)
     addTag(routeItem)
     // 判断页面是否可缓存
-    if(routeItem.keep_alive === 1) {
+    if (routeItem.keep_alive === 1) {
       addCachePage(routeItem.name)
     }
   }
