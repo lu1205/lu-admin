@@ -6,12 +6,13 @@ import { useRoutesStore } from '@/store/routes'
 import { useTokenStore } from '@/store/token'
 import { useTagsStore } from '@/store/tags'
 import { useCachePagesStore } from '@/store/cachePages'
+import {useUserStore} from "@/store/user";
 
 const { setRoutes, resetRoutes, initDynamicRoutes } = useRoutesStore()
 const { setToken, clearToken } = useTokenStore()
 const { resetTag } = useTagsStore()
 const { clearCachePage } = useCachePagesStore()
-let form = reactive({ username: '', password: '' })
+let form = reactive({ username: 'admin', password: '123456' })
 const rules = []
 let formRef = ref<any>(null)
 const router = useRouter()
@@ -19,6 +20,10 @@ const loginHandle = async (formEl: any) => {
   // 获取动态路由
   await initDynamicRoutes()
   setToken('token')
+  useUserStore().setUser({
+    name: '超级管理员',
+    email: '123456@qq.com',
+  })
   await router.push('/')
 }
 resetRoutes()

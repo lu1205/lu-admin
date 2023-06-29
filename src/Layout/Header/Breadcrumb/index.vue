@@ -9,27 +9,53 @@
         {{ item.meta.title }}
       </el-breadcrumb-item>
     </el-breadcrumb>
-    <div>其他标签</div>
+    <div>
+        <el-popover placement="bottom" trigger="click">
+          <template #reference>
+            <div class="header">
+              <img class="header-img" src="../../../assets/defaultImg/user.jpg" alt="">
+              <span>{{userInfo.name}}</span>
+            </div>
+          </template>
+          <div>
+            <div style="display: flex;align-items: center;font-size: 14px;" @click="logout">
+              <img style="width: 16px;height: 16px;margin-right: 10px" src="../../../assets/defaultImg/logout.png" alt="">
+              <div style="flex: 1">退出登录</div>
+            </div>
+          </div>
+        </el-popover>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
-let levelList = ref<any>([])
-const router = useRouter()
+import {useRouter} from "vue-router";
+
+const route = useRoute();
+let levelList = ref<any>([]);
+const router = useRouter();
 const getBreadcrumb = () => {
-  levelList.value = router.currentRoute.value.matched
+  levelList.value = router.currentRoute.value.matched;
+};
+import {useUserStore} from "@/store/user";
+const userInfo = useUserStore().getUser()
+
+const logout = ()=>{
+  useUserStore().clearUser()
+  router.push({
+    path: '/login'
+  })
 }
 onMounted(() => {
-  getBreadcrumb()
-})
+  getBreadcrumb();
+});
 
 watch(
   () => route.path,
   () => {
-    getBreadcrumb()
+    getBreadcrumb();
   }
-)
+);
 </script>
 
 <style scoped lang="less">
@@ -38,5 +64,20 @@ watch(
   justify-content: space-between;
   align-items: center;
   height: 40px;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  .header {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-img {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
 }
 </style>

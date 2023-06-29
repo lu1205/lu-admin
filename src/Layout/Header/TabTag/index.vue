@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ArrowDown, RefreshRight, Close } from '@element-plus/icons-vue'
 const router = useRouter()
 const route = useRoute()
 import { useTagsStore } from '@/store/tags'
@@ -18,6 +19,7 @@ const removeTag = (route: any) => {
         v-for="(tag, index) in tagList"
         :key="tag.path"
         class="mx-1"
+        :style="{marginLeft: index === 0 ? '16px': ''}"
         :closable="
           tag.path !== '/home' &&
           (hoverPath === tag.path || route.path === tag.path)
@@ -36,7 +38,23 @@ const removeTag = (route: any) => {
         {{ tag.meta.title }}
       </el-tag>
     </div>
-    <div class="right">其他操作</div>
+    <div class="right">
+      <el-popover placement="bottom" trigger="click">
+        <template #reference>
+          <el-icon :size="16" color="#000"><ArrowDown /></el-icon>
+        </template>
+        <div>
+          <div style="display: flex; align-items: center; font-size: 14px;padding: 4px 0;box-sizing: border-box">
+            <el-icon :size="16" color="#000"><RefreshRight /></el-icon>
+            <div style="flex: 1; margin-left: 10px">重新加载</div>
+          </div>
+          <div style="display: flex; align-items: center; font-size: 14px;padding: 4px 0;box-sizing: border-box">
+            <el-icon :size="16" color="#000"><Close /></el-icon>
+            <div style="flex: 1; margin-left: 10px">关闭所有页面</div>
+          </div>
+        </div>
+      </el-popover>
+    </div>
   </div>
 </template>
 
@@ -56,11 +74,12 @@ const removeTag = (route: any) => {
   }
 
   .left {
-    width: 100%;
+    flex: 1;
   }
 
   .right {
-    width: 200px;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 }
 </style>
