@@ -6,7 +6,7 @@ import { useRoutesStore } from '@/store/routes'
 import { useTokenStore } from '@/store/token'
 import { useTagsStore } from '@/store/tags'
 import { useCachePagesStore } from '@/store/cachePages'
-import {useUserStore} from "@/store/user";
+import { useUserStore } from '@/store/user'
 
 const { setRoutes, resetRoutes, initDynamicRoutes } = useRoutesStore()
 const { setToken, clearToken } = useTokenStore()
@@ -22,7 +22,7 @@ const loginHandle = async (formEl: any) => {
   setToken('token')
   useUserStore().setUser({
     name: '超级管理员',
-    email: '123456@qq.com',
+    email: '123456@qq.com'
   })
   await router.push('/')
 }

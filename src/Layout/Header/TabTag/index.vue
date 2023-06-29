@@ -19,7 +19,7 @@ const removeTag = (route: any) => {
         v-for="(tag, index) in tagList"
         :key="tag.path"
         class="mx-1"
-        :style="{marginLeft: index === 0 ? '16px': ''}"
+        :style="{ marginLeft: index === 0 ? '16px' : '' }"
         :closable="
           tag.path !== '/home' &&
           (hoverPath === tag.path || route.path === tag.path)
@@ -44,11 +44,27 @@ const removeTag = (route: any) => {
           <el-icon :size="16" color="#000"><ArrowDown /></el-icon>
         </template>
         <div>
-          <div style="display: flex; align-items: center; font-size: 14px;padding: 4px 0;box-sizing: border-box">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              font-size: 14px;
+              padding: 4px 0;
+              box-sizing: border-box;
+            "
+          >
             <el-icon :size="16" color="#000"><RefreshRight /></el-icon>
             <div style="flex: 1; margin-left: 10px">重新加载</div>
           </div>
-          <div style="display: flex; align-items: center; font-size: 14px;padding: 4px 0;box-sizing: border-box">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              font-size: 14px;
+              padding: 4px 0;
+              box-sizing: border-box;
+            "
+          >
             <el-icon :size="16" color="#000"><Close /></el-icon>
             <div style="flex: 1; margin-left: 10px">关闭所有页面</div>
           </div>
