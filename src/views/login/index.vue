@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import {useRouter} from "vue-router";
+import {ref,reactive} from "vue";
 
 const list = [
   {
@@ -48,11 +49,10 @@ let form = reactive({ username: '', password: '' })
 const rules = []
 let formRef = ref<any>(null)
 const router = useRouter()
-const loginHandle = async (formEl: any) => {
+const loginHandle = (formEl: any) => {
   setRoutes(list)
   setToken('token')
-  console.log(router)
-  await router.push('/')
+  router.push('/')
 }
 </script>
 
