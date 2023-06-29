@@ -14,7 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { isRef, ref } from "vue";
+import {useRouter} from "vue-router";
 import MenuItem from './Item/index.vue'
 
 const route = useRoute()
@@ -23,16 +24,16 @@ const router = useRouter()
 const isCollapse = ref(false)
 import { useRoutesStore } from '@/store/routes'
 import { useRoute } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { handleRoutesToTree } from '@/utils/route'
 
-const { routes } = storeToRefs(useRoutesStore())
-let menuList = ref([])
-menuList.value = handleRoutesToTree(routes.value)
+const {getRoutes} = useRoutesStore()
+let menuList = ref(handleRoutesToTree(getRoutes()))
 
 import { useTagsStore } from '@/store/tags'
+import { useCachePagesStore } from '@/store/cachePages'
 
 const { addTag, getTags } = useTagsStore()
+const { addCachePage } = useCachePagesStore()
 const tagsArr = getTags()
 const selectPath = (indexPath: string) => {
   const allRoutes = (router.getRoutes() || []) as Array<any>
@@ -41,6 +42,10 @@ const selectPath = (indexPath: string) => {
   if (index === -1) {
     routeItem = findRouteByIndexPath(indexPath, allRoutes)
     addTag(routeItem)
+    // 判断页面是否可缓存
+    if(routeItem.keep_alive === 1) {
+      addCachePage(routeItem.name)
+    }
   }
 }
 const findRouteByIndexPath = (indexPath: string, routeArr: Array<any>): any => {

@@ -22,7 +22,6 @@ const getBreadcrumb = () => {
 }
 onMounted(() => {
   getBreadcrumb()
-  console.log(levelList.value)
 })
 
 watch(

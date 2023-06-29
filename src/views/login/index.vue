@@ -5,60 +5,26 @@ import { ref, reactive } from 'vue'
 import { useRoutesStore } from '@/store/routes'
 import { useTokenStore } from '@/store/token'
 import { useTagsStore } from '@/store/tags'
+import { useCachePagesStore } from '@/store/cachePages'
 
-const { setRoutes,resetRoutes } = useRoutesStore()
-const { setToken,clearToken } = useTokenStore()
+const { setRoutes, resetRoutes,initDynamicRoutes } = useRoutesStore()
+const { setToken, clearToken } = useTokenStore()
 const { resetTag } = useTagsStore()
+const { clearCachePage } = useCachePagesStore()
 let form = reactive({ username: '', password: '' })
 const rules = []
 let formRef = ref<any>(null)
 const router = useRouter()
-const loginHandle = (formEl: any) => {
-  const list = [
-    {
-      id: 5,
-      parent_id: null,
-      path: '/system',
-      name: 'system',
-      redirect: '/system/user',
-      component: '',
-      title: '系统设置',
-      icon: '',
-      keep_alive: 0,
-      del: 0
-    },
-    {
-      id: 6,
-      parent_id: 5,
-      path: '/system/user',
-      name: 'user',
-      redirect: '',
-      component: 'system/user',
-      title: '用户管理',
-      icon: '',
-      keep_alive: 1,
-      del: 0
-    },
-    {
-      id: 7,
-      parent_id: 5,
-      path: '/system/menu',
-      name: 'menu',
-      redirect: '',
-      component: 'system/menu',
-      title: '菜单管理',
-      icon: '',
-      keep_alive: 1,
-      del: 0
-    }
-  ]
-  setRoutes(list)
+const loginHandle = async (formEl: any) => {
+  // 获取动态路由
+  await initDynamicRoutes()
   setToken('token')
-  router.push('/')
+  await router.push('/')
 }
 resetRoutes()
 resetTag()
 clearToken()
+clearCachePage()
 </script>
 
 <template>

@@ -7,10 +7,16 @@ export const useRoutesStore = defineStore(
   () => {
     const routes = ref([])
 
+    /*
+     * 获取路由
+     * */
     function getRoutes() {
       return routes.value
     }
 
+    /*
+     * 设置路由
+     * */
     function setRoutes(routeList: any) {
       routes.value = routeList
     }
@@ -23,13 +29,9 @@ export const useRoutesStore = defineStore(
     }
 
     /*
-     * 获取动态路由
-     *
-     * 1、调用接口获取路由列表
-     * 2、把路由列表转换为路由树
-     * 3、打平路由数，添加路由
+     * 初始化路由
      * */
-    function getDynamicRoutes() {
+    function initDynamicRoutes() {
       const routeList = [
         {
           id: 5,
@@ -52,7 +54,7 @@ export const useRoutesStore = defineStore(
           component: 'system/user',
           title: '用户管理',
           icon: '',
-          keep_alive: 1,
+          keep_alive: 0,
           del: 0
         },
         {
@@ -68,11 +70,13 @@ export const useRoutesStore = defineStore(
           del: 0
         }
       ]
-      const routeTree = handleRoutesToTree(routeList)
-      setRoutes(routeTree)
+      setRoutes(routeList)
+
+      // const routeTree = handleRoutesToTree(routeList)
+      // setRoutes(routeTree)
     }
 
-    return { routes, getRoutes, setRoutes, resetRoutes, getDynamicRoutes }
+    return { routes, getRoutes, setRoutes, resetRoutes, initDynamicRoutes }
   },
   {
     persist: {

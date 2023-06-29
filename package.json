@@ -46,6 +46,7 @@
     "@vue/eslint-config-typescript": "^11.0.3",
     "@vue/tsconfig": "^0.4.0",
     "commitlint": "^17.6.5",
+    "dayjs": "^1.11.8",
     "element-plus": "^2.3.6",
     "eslint": "^8.39.0",
     "eslint-plugin-vue": "^9.11.0",

@@ -2,11 +2,12 @@
 const router = useRouter()
 const route = useRoute()
 import { useTagsStore } from '@/store/tags'
-
+import { useCachePagesStore } from '@/store/cachePages'
 let tagList = computed(() => useTagsStore().getTags())
 let hoverPath = ref<string>('')
-const removeTag = (path: string) => {
-  useTagsStore().removeTag(path)
+const removeTag = (route: any) => {
+  useTagsStore().removeTag(route.path)
+  useCachePagesStore().removeCachePage(route.name)
 }
 </script>
 
@@ -28,7 +29,7 @@ const removeTag = (path: string) => {
         "
         :ref="'dynamic' + index"
         @click="router.push(tag.path)"
-        @close="removeTag(tag.path)"
+        @close="removeTag(tag)"
         @mouseenter="hoverPath = tag.path"
         @mouseleave="hoverPath = ''"
       >

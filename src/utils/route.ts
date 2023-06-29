@@ -1,7 +1,7 @@
 import router from '@/router/index'
 
 // 数组转树结构
-export function handleRoutesToTree(routes: any[]) {
+export function handleRoutesToTree(routes: any[]): any[] {
   const parentRouteList: any[] = []
   const childRouteList: any[] = []
   handleRouteInfo(routes).forEach((item: any) => {
