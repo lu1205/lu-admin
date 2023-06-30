@@ -34,7 +34,7 @@
       "@/*": ["./src/*"]
     },
     // Add the pinia-plugin-persist types definition file to your tsconfig file.
-    // "types": ["pinia-plugin-persistdata"]
+    "types": ["pinia-plugin-persistdata"]
   },
   "references": [
     {
