@@ -3,8 +3,6 @@
 
 #npx --no-install lint-staged
 
-#pnpm lint && pnpm format && pnpm lint:style
-#pnpm run format
 npm run lint:lint-staged
 
-npm run pretty-quick
+npm run lint:pretty

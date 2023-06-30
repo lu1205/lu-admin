@@ -7,14 +7,14 @@
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
-    "reInstall": "rimraf node_modules && npm install",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "reInstall": "rimraf node_modules && pnpm install",
+    "lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "lint:lint-staged": "lint-staged -c ./.husky/lint-staged.config.cjs",
-    "pretty-quick": "pretty-quick --staged",
-    "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md,cjs}\"",
-    "prepare": "husky install",
-    "lint:style": "stylelint \"./**/*.{css,less,scss,vue,html}\" --fix"
+    "lint:pretty": "pretty-quick --staged",
+    "lint:prettier": "prettier --write \"src/**/*.{cjs,js,ts,json,tsx,css,scss,less,vue,html,md}\"",
+    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,html}\" --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "^1.4.0",
