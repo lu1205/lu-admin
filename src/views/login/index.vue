@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { ref, reactive } from 'vue'
 
 import { useRoutesStore } from '@/store/routes'
 import { useTokenStore } from '@/store/token'

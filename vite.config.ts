@@ -84,7 +84,7 @@ export default defineConfig(({ command, mode }) => {
       }
     },
     build: {
-      target: ['es2015'],
+      // target: ['es2015', 'modules'],
       outDir: 'dist', // 指定输出路径
       assetsDir: 'static', // 指定生成静态文件目录
       assetsInlineLimit: 4096, // 小于此阈值的导入或引用资源将内联为 base64 编码

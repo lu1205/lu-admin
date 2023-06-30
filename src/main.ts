@@ -13,7 +13,12 @@ import 'element-plus/theme-chalk/el-message.css'
 import 'element-plus/theme-chalk/el-message-box.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
+// 引入重置样式
+import '@/styles/reset.less'
+
 import '@/styles/base.css'
+
+import '@/styles/tailwind.css'
 
 const app = createApp(App)
 

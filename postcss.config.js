@@ -1,4 +1,11 @@
 module.exports = {
+  plugins: {
+    'postcss-import': {},
+    'tailwindcss/nesting': {},
+    tailwindcss: {},
+    autoprefixer: {},
+    ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
+  }
   /*  plugins: {
     'postcss-px-to-viewport-8-plugin': {
       unitToConvert: 'px', // 需要转换的单位，默认为"px"

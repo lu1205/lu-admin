@@ -1,30 +1,29 @@
 import { defineStore } from 'pinia'
-import { reactive } from 'vue'
 
 export const useUserStore = defineStore(
   'userStore',
   () => {
-    let user = reactive({})
+    const user = ref({})
 
     /*
      * 设置user
      * */
     const setUser = (data: any) => {
-      user = data
+      user.value = data
     }
 
     /*
      * 获取user
      * */
     const getUser = () => {
-      return user
+      return user.value
     }
 
     /*
      * 清除user
      * */
     const clearUser = () => {
-      user = {}
+      user.value = {}
     }
 
     return { user, setUser, getUser, clearUser }
