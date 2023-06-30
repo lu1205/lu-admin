@@ -22,7 +22,8 @@
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json,cjs}": [
       "pnpm run lint",
-      "pnpm run format"
+      "pnpm run format",
+      "git add ."
     ],
     "*.{css,less,scss,vue,html}": [
       "pnpm run lint:style",
