@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useRoutesStore } from '@/store/routes'
 import { useTokenStore } from '@/store/token'
 import { useTagsStore } from '@/store/tags'
