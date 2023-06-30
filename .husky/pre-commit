@@ -4,4 +4,7 @@
 #npx --no-install lint-staged
 
 #pnpm lint && pnpm format && pnpm lint:style
-pnpm run format
+#pnpm run format
+npm run lint:lint-staged
+
+npm run pretty-quick
