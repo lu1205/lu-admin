@@ -68,6 +68,42 @@ export const useRoutesStore = defineStore(
           icon: '',
           keep_alive: 0,
           del: 0
+        },
+        {
+          id: 15,
+          parent_id: null,
+          path: '/other',
+          name: 'other',
+          redirect: '/other/recordScreen',
+          component: '',
+          title: '录屏',
+          icon: '',
+          keep_alive: 0,
+          del: 0
+        },
+        {
+          id: 16,
+          parent_id: 15,
+          path: '/other/recordScreen',
+          name: 'recordScreen',
+          redirect: '',
+          component: 'other/recordScreen',
+          title: '录屏',
+          icon: '',
+          keep_alive: 1,
+          del: 0
+        },
+        {
+          id: 17,
+          parent_id: 15,
+          path: '/other/screenshots',
+          name: 'screenshots',
+          redirect: '',
+          component: 'other/screenshots',
+          title: '拍照',
+          icon: '',
+          keep_alive: 1,
+          del: 0
         }
       ]
       setRoutes(routeList)

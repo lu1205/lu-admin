@@ -66,7 +66,7 @@ export default defineConfig(({ command, mode }) => {
     },
     server: {
       port: 3009,
-      host: '127.0.0.1',
+      // host: '192.168.1.218',
       open: true,
       https: false,
       hmr: true, //开启热更新
