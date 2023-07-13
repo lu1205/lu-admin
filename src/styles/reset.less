@@ -1,10 +1,10 @@
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
-  border-color: currentColor;
   border-style: solid;
   border-width: 0;
+  border-color: currentcolor;
+  box-sizing: border-box;
 }
 
 #app {
@@ -22,11 +22,11 @@ html {
 }
 
 body {
+  margin: 0;
   width: 100%;
   height: 100%;
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
-  "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
   line-height: inherit;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -44,8 +44,8 @@ abbr:where([title]) {
 }
 
 a {
-  color: inherit;
   text-decoration: inherit;
+  color: inherit;
 }
 
 b,
@@ -57,9 +57,9 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-  "Liberation Mono", "Courier New", monospace;
   font-size: 1em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
 }
 
 small {
@@ -95,10 +95,10 @@ select,
 textarea {
   padding: 0;
   margin: 0;
-  font-family: inherit;
   font-size: 100%;
-  line-height: inherit;
+  font-family: inherit;
   color: inherit;
+  line-height: inherit;
 }
 
 button,
@@ -107,9 +107,9 @@ select {
 }
 
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   background-image: none;
 }
 
@@ -130,7 +130,7 @@ progress {
   height: auto;
 }
 
-[type="search"] {
+[type='search'] {
   outline-offset: -2px;
 }
 
@@ -186,7 +186,7 @@ textarea::placeholder {
 }
 
 button,
-[role="button"] {
+[role='button'] {
   cursor: pointer;
 }
 
@@ -237,8 +237,8 @@ a:active {
 a,
 a:focus,
 a:hover {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
   cursor: pointer;
 }
 
@@ -249,10 +249,10 @@ div:focus {
 .clearfix {
   &::after {
     display: block;
-    height: 0;
     clear: both;
+    height: 0;
     font-size: 0;
     visibility: hidden;
-    content: " ";
+    content: ' ';
   }
 }

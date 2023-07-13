@@ -13,6 +13,7 @@ export const useTokenStore = defineStore(
     function getToken() {
       return token.value
     }
+
     /*
      * 清除token
      * */

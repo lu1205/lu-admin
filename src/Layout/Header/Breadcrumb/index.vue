@@ -27,7 +27,7 @@
             @click="logout"
           >
             <img
-              style="width: 16px; height: 16px; margin-right: 10px"
+              style="margin-right: 10px; width: 16px; height: 16px"
               src="../../../assets/defaultImg/logout.png"
               alt=""
             />
@@ -49,6 +49,7 @@ const getBreadcrumb = () => {
   levelList.value = router.currentRoute.value.matched
 }
 import { useUserStore } from '@/store/user'
+
 const userInfo = useUserStore().getUser()
 
 const logout = () => {
@@ -74,8 +75,8 @@ watch(
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
   padding: 0 16px;
+  height: 40px;
   box-sizing: border-box;
 
   .header {
@@ -84,10 +85,10 @@ watch(
   }
 
   .header-img {
+    margin-right: 10px;
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    margin-right: 10px;
   }
 }
 </style>

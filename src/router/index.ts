@@ -31,9 +31,8 @@ router.beforeEach(async (to, from, next) => {
   const { getToken } = useTokenStore()
   if (!getToken() && to.path !== '/login') {
     next('/login')
-  }
-  // 刷新，重新加载动态路由
-  if (!to?.name && to.path !== '/login') {
+  } else if (!to?.name && to.path !== '/login') {
+    // 刷新，重新加载动态路由
     const { routes } = storeToRefs(useRoutesStore())
     const routesList = handleRoutesToTree(routes.value)
     next(to.path)

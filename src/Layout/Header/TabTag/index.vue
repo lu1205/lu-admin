@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import { ArrowDown, RefreshRight, Close } from '@element-plus/icons-vue'
+
 const router = useRouter()
 const route = useRoute()
 import { useTagsStore } from '@/store/tags'
 import { useCachePagesStore } from '@/store/cachePages'
+
 let tagList = computed(() => useTagsStore().getTags())
 let hoverPath = ref<string>('')
 const removeTag = (route: any) => {
@@ -41,31 +43,37 @@ const removeTag = (route: any) => {
     <div class="right">
       <el-popover placement="bottom" trigger="click">
         <template #reference>
-          <el-icon :size="16" color="#000"><ArrowDown /></el-icon>
+          <el-icon :size="16" color="#000">
+            <ArrowDown />
+          </el-icon>
         </template>
         <div>
           <div
             style="
               display: flex;
               align-items: center;
-              font-size: 14px;
               padding: 4px 0;
+              font-size: 14px;
               box-sizing: border-box;
             "
           >
-            <el-icon :size="16" color="#000"><RefreshRight /></el-icon>
+            <el-icon :size="16" color="#000">
+              <RefreshRight />
+            </el-icon>
             <div style="flex: 1; margin-left: 10px">重新加载</div>
           </div>
           <div
             style="
               display: flex;
               align-items: center;
-              font-size: 14px;
               padding: 4px 0;
+              font-size: 14px;
               box-sizing: border-box;
             "
           >
-            <el-icon :size="16" color="#000"><Close /></el-icon>
+            <el-icon :size="16" color="#000">
+              <Close />
+            </el-icon>
             <div style="flex: 1; margin-left: 10px">关闭所有页面</div>
           </div>
         </div>

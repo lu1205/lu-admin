@@ -16,8 +16,8 @@ import TabTag from './TabTag/index.vue'
 
 <style scoped lang="less">
 .header-box {
-  height: 100%;
   display: flex;
+  height: 100%;
   flex-direction: column;
 }
 </style>

@@ -21,13 +21,13 @@ import Main from './Content/index.vue'
 <style lang="less" scoped>
 .layout-box {
   display: flex;
-  height: 100vh;
   overflow: hidden;
+  height: 100vh;
 
   .aside {
+    overflow: auto;
     width: 20vw;
     height: 100%;
-    overflow: auto;
   }
 
   .content {
@@ -39,8 +39,8 @@ import Main from './Content/index.vue'
     }
 
     .main {
-      height: 90vh;
       overflow: auto;
+      height: 90vh;
       background-color: #f6f6f6;
     }
   }

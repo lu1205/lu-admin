@@ -6,10 +6,11 @@
 </template>
 
 <script setup lang="ts">
-let count = ref(0)
-setInterval(() => {
+let count = ref<number>(0)
+let interval = setInterval(() => {
   count.value += 1
-}, 2000)
+}, 1000)
+onUnmounted(() => {
+  clearInterval(interval)
+})
 </script>
-
-<style scoped></style>

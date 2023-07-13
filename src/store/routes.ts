@@ -54,7 +54,7 @@ export const useRoutesStore = defineStore(
           component: 'system/user',
           title: '用户管理',
           icon: '',
-          keep_alive: 0,
+          keep_alive: 1,
           del: 0
         },
         {
@@ -66,7 +66,7 @@ export const useRoutesStore = defineStore(
           component: 'system/menu',
           title: '菜单管理',
           icon: '',
-          keep_alive: 1,
+          keep_alive: 0,
           del: 0
         }
       ]

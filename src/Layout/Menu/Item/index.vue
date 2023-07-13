@@ -26,5 +26,5 @@
 import { Location } from '@element-plus/icons-vue'
 
 const props = defineProps(['routes'])
-const { routes: menuList }: any = props
+let menuList: Array<any> = ref(props.routes ?? [])
 </script>

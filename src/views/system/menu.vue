@@ -12,10 +12,9 @@ let num = ref<any>(null)
 setInterval(() => {
   num.value = dayjs().format('YYYY-MM-DD HH:mm:ss')
 }, 1000)
-let a = ref('')
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .container {
   display: flex;
   flex-direction: column;
