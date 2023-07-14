@@ -104,6 +104,18 @@ export const useRoutesStore = defineStore(
           icon: '',
           keep_alive: 1,
           del: 0
+        },
+        {
+          id: 18,
+          parent_id: 15,
+          path: '/other/video',
+          name: 'video',
+          redirect: '',
+          component: 'other/video',
+          title: '录屏TSX',
+          icon: '',
+          keep_alive: 1,
+          del: 0
         }
       ]
       setRoutes(routeList)

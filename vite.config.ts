@@ -47,6 +47,8 @@ export default defineConfig(({ command, mode }) => {
         dts: path.resolve('./auto-imports.d.ts')
       }),
       Components({
+        // unplugin-vue-components default include: [/\.vue$/, /\.vue\?vue/, /\.vue\?v=/]
+        include: ['./src/**/*.{jsx,tsx,vue,html}'],
         resolvers: [
           ElementPlusResolver(),
           IconsResolver({

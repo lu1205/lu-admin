@@ -48,11 +48,11 @@ export function handleRouteInfo(routes: any[]) {
 }
 
 // 导入组件，vite 中需要使用 import.meta.glob()，匹配多级目录需要使用
-const modules = import.meta.glob('@/views/**/*.vue')
+const modules = import.meta.glob(['@/views/**/*.vue', '@/views/**/*.tsx'])
 
 /*
  * 根据组件路径获取文件
  * */
 export function getComponent(path: string) {
-  return modules[`/src/views/${path}.vue`]
+  return modules[`/src/views/${path}.vue`] || modules[`/src/views/${path}.tsx`]
 }
