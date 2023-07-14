@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div style="background-color: skyblue">
       <div>实时显示录屏内容，停止后自动回放</div>
       <video width="600" height="400" autoplay controls ref="videoRef"></video>
       <div>
@@ -51,7 +51,7 @@ const start = async () => {
       cursor: 'always'
     },
     audio: false
-  })
+  } as any)
   videoRef.value.srcObject = stream.value
 
   // 需要更好的浏览器支持
@@ -113,7 +113,7 @@ const download = () => {
 
 const videoRef2 = ref()
 let isPlay2 = ref<boolean>(false)
-let stream2 = shallowRef([])
+let stream2 = shallowRef()
 
 // 实时显示录屏内容
 const start2 = async () => {
@@ -124,7 +124,7 @@ const start2 = async () => {
       cursor: 'always'
     },
     audio: false
-  })
+  } as any)
   videoRef2.value.srcObject = stream2.value
 }
 
@@ -136,7 +136,7 @@ const stop2 = () => {
 
 const videoRef3 = ref()
 let isPlay3 = ref<boolean>(false)
-let stream3 = shallowRef([])
+let stream3 = shallowRef()
 let chunks3 = shallowRef([])
 let mediaRecorder3 = shallowRef()
 
@@ -148,7 +148,7 @@ const start3 = async () => {
       cursor: 'always'
     },
     audio: false
-  })
+  } as any)
 
   // 需要更好的浏览器支持
   const mime = MediaRecorder.isTypeSupported('video/webm; codecs=vp9')

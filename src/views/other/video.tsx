@@ -16,7 +16,7 @@ export default defineComponent({
           cursor: 'always'
         },
         audio: false
-      })
+      } as any)
       videoRef.value.srcObject = stream.value
 
       // 需要更好的浏览器支持
@@ -108,14 +108,14 @@ export default defineComponent({
           </el-button>
         </div>
         <div>
-          <ElSelect>
+          <el-select>
             {{
               default: () =>
                 options.value.map((item) => (
-                  <ElOption label={item.label} value={item.value}></ElOption>
+                  <el-option label={item.label} value={item.value}></el-option>
                 ))
             }}
-          </ElSelect>
+          </el-select>
         </div>
       </div>
     )
