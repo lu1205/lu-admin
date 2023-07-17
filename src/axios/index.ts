@@ -38,12 +38,13 @@ request.interceptors.response.use(
   async function (response: AxiosResponse | MyAxiosResponse) {
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
-    if (response.data.status === 2) {
+    if (response.data.status === 0) {
+      // 接口正常返回
+      return response.data
+    } else {
       ElMessage({ type: 'error', message: response.data.message })
-      window.location.href = '/'
       return
     }
-    return response.data
   },
   function (error) {
     // 超出 2xx 范围的状态码都会触发该函数。

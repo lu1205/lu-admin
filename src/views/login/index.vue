@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { login } from '@/api/index'
 import { useRoutesStore } from '@/store/routes'
 import { useTokenStore } from '@/store/token'
 import { useTagsStore } from '@/store/tags'
 import { useCachePagesStore } from '@/store/cachePages'
 import { useUserStore } from '@/store/user'
+import { useAutoRequest } from '../../hooks/loading'
 
 const { setRoutes, resetRoutes, initDynamicRoutes } = useRoutesStore()
 const { setToken, clearToken } = useTokenStore()
@@ -13,15 +15,28 @@ let form = reactive({ username: 'admin', password: '123456' })
 const rules = []
 let formRef = ref<any>(null)
 const router = useRouter()
+
+const [loading, submitLogin] = useAutoRequest(login)
 const loginHandle = async (formEl: any) => {
-  // 获取动态路由
-  await initDynamicRoutes()
-  setToken('token')
-  useUserStore().setUser({
-    name: '超级管理员',
-    email: '123456@qq.com'
+  if (!formEl) return
+  await formEl.validate(async (valid, fields) => {
+    if (valid) {
+      // const res: any = await submitLogin(form)
+      const res: any = { status: 0 }
+      if (res.status === 0) {
+        // 获取动态路由
+        await initDynamicRoutes()
+        setToken('token')
+        useUserStore().setUser({
+          name: '超级管理员',
+          email: '123456@qq.com'
+        })
+        await router.push('/')
+      }
+    } else {
+      console.log('error submit!', fields)
+    }
   })
-  await router.push('/')
 }
 resetRoutes()
 resetTag()
@@ -45,7 +60,11 @@ clearCachePage()
         </el-form-item>
         <div class="btns">
           <el-button class="cancel-btn">取消</el-button>
-          <el-button type="primary" @click="loginHandle(formRef)">
+          <el-button
+            type="primary"
+            :loading="loading"
+            @click="loginHandle(formRef)"
+          >
             登录
           </el-button>
         </div>
