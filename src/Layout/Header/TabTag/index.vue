@@ -99,6 +99,7 @@ const removeTag = (route: any) => {
 
   .left {
     flex: 1;
+    overflow-x: scroll;
   }
 
   .right {

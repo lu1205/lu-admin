@@ -28,6 +28,7 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+  NProgress.start()
   const { getToken } = useTokenStore()
   if (!getToken() && to.path !== '/login') {
     next('/login')
