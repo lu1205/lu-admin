@@ -34,6 +34,7 @@
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.3",
     "@vue/tsconfig": "^0.4.0",
+    "@vueuse/core": "^10.2.1",
     "autoprefixer": "^10.4.14",
     "commitlint": "^17.6.5",
     "cssnano": "^6.0.1",
