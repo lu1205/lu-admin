@@ -15,7 +15,6 @@ const pathSrc = path.resolve(__dirname, 'src')
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  console.log(command, mode, env)
   return {
     plugins: [
       vue(),

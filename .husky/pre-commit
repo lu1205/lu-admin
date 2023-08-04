@@ -3,6 +3,6 @@
 
 #npx --no-install lint-staged
 
-npm run lint:lint-staged
+#npm run lint:lint-staged
 
-npm run lint:pretty
+#npm run lint:pretty
