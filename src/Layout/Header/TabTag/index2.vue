@@ -22,7 +22,11 @@ const removeTag = (route: any) => {
           v-for="(tag, index) in tagList"
           :key="tag.path"
           class="mx-1"
-          :style="{ marginLeft: index === 0 ? '16px' : '' }"
+          :style="{
+            marginLeft: index === 0 ? '16px' : '',
+            padding: '12px 10px',
+            fontSize: '12px'
+          }"
           :closable="
             tag.path !== '/' &&
             (hoverPath === tag.path || route.path === tag.path)
