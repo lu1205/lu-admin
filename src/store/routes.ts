@@ -116,6 +116,18 @@ export const useRoutesStore = defineStore(
           icon: '',
           keep_alive: 1,
           del: 0
+        },
+        {
+          id: 19,
+          parent_id: 15,
+          path: '/other/tts',
+          name: 'Web Speech API',
+          redirect: '',
+          component: 'other/tts',
+          title: 'Web Speech API',
+          icon: '',
+          keep_alive: 1,
+          del: 0
         }
       ]
       setRoutes(routeList)
