@@ -12,20 +12,26 @@ const removeTag = (route: any) => {
   useTagsStore().removeTag(route.path)
   useCachePagesStore().removeCachePage(route.name)
 }
+
+const clearAllTag = () => {
+  useTagsStore().resetTag()
+  useCachePagesStore().clearCachePage()
+  router.push('/')
+}
 </script>
 
 <template>
-  <div class="tag-box">
-    <div class="left">
+  <div
+    class="flex flex-row justify-between items-center py-[10px] box-border h-[100%] border-b border-solid border-[#f4f5f6]"
+  >
+    <div class="flex-1 overflow-hidden">
       <el-scrollbar>
         <el-tag
           v-for="(tag, index) in tagList"
           :key="tag.path"
-          class="mx-1"
+          class="mr-[14px] text-[12px] py-[12px] px-[10px]"
           :style="{
-            marginLeft: index === 0 ? '16px' : '',
-            padding: '12px 10px',
-            fontSize: '12px'
+            marginLeft: index === 0 ? '16px' : ''
           }"
           :closable="
             tag.path !== '/' &&
@@ -46,7 +52,7 @@ const removeTag = (route: any) => {
         </el-tag>
       </el-scrollbar>
     </div>
-    <div class="right">
+    <div class="px-[16px] box-border">
       <el-popover placement="bottom" trigger="click">
         <template #reference>
           <el-icon :size="16" color="#000">
@@ -54,63 +60,22 @@ const removeTag = (route: any) => {
           </el-icon>
         </template>
         <div>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              padding: 4px 0;
-              font-size: 14px;
-              box-sizing: border-box;
-            "
-          >
+          <div class="flex items-center py-[4px] text-[14px] box-border">
             <el-icon :size="16" color="#000">
               <RefreshRight />
             </el-icon>
             <div style="flex: 1; margin-left: 10px">重新加载</div>
           </div>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              padding: 4px 0;
-              font-size: 14px;
-              box-sizing: border-box;
-            "
-          >
+          <div class="flex items-center py-[4px] text-[14px] box-border">
             <el-icon :size="16" color="#000">
               <Close />
             </el-icon>
-            <div style="flex: 1; margin-left: 10px">关闭所有页面</div>
+            <div class="flex-1 ml-[10px]" @click="clearAllTag">
+              关闭所有页面
+            </div>
           </div>
         </div>
       </el-popover>
     </div>
   </div>
 </template>
-
-<style scoped lang="less">
-.tag-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  box-sizing: border-box;
-  height: 100%;
-  flex-direction: row;
-  border-bottom: 1px solid #f4f5f6;
-
-  :deep(.el-tag) {
-    margin-right: 14px;
-  }
-
-  .left {
-    flex: 1;
-    overflow: hidden;
-  }
-
-  .right {
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-}
-</style>
