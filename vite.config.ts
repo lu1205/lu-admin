@@ -10,8 +10,6 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import path from 'path'
 
-const pathSrc = path.resolve(__dirname, 'src')
-
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -62,7 +60,8 @@ export default defineConfig(({ command, mode }) => {
     ],
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
+        // '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '@': path.resolve(__dirname, 'src')
       }
     },
     server: {

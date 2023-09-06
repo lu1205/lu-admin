@@ -6,6 +6,7 @@ import { useTagsStore } from '@/store/tags'
 import { useCachePagesStore } from '@/store/cachePages'
 import { useUserStore } from '@/store/user'
 import { useAutoRequest } from '../../hooks/loading'
+import { ref } from 'vue'
 
 const { setRoutes, resetRoutes, initDynamicRoutes } = useRoutesStore()
 const { setToken, clearToken } = useTokenStore()
@@ -42,10 +43,11 @@ resetRoutes()
 resetTag()
 clearToken()
 clearCachePage()
+let eleRef = ref()
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" ref="eleRef">
     <div class="form-box">
       <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-form-item label="用户名" prop="username">
@@ -59,7 +61,7 @@ clearCachePage()
           />
         </el-form-item>
         <div class="btns">
-          <el-button class="cancel-btn">取消</el-button>
+          <el-button class="cancel-btn" v-lazy-load="eleRef">取消</el-button>
           <el-button
             type="primary"
             :loading="loading"

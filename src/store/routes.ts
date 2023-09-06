@@ -128,6 +128,30 @@ export const useRoutesStore = defineStore(
           icon: '',
           keep_alive: 1,
           del: 0
+        },
+        {
+          id: 20,
+          parent_id: 15,
+          path: '/other/waterfallFlow',
+          name: 'waterfallFlow',
+          redirect: '',
+          component: 'other/waterfallFlow',
+          title: 'waterfallFlow',
+          icon: '',
+          keep_alive: 1,
+          del: 0
+        },
+        {
+          id: 21,
+          parent_id: 15,
+          path: '/other/lazyLoadImage',
+          name: 'lazyLoadImage',
+          redirect: '',
+          component: 'other/lazyLoadImage',
+          title: 'lazyLoadImage',
+          icon: '',
+          keep_alive: 1,
+          del: 0
         }
       ]
       setRoutes(routeList)

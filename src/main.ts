@@ -19,8 +19,10 @@ import '@/styles/reset.less'
 import '@/styles/base.css'
 
 import '@/styles/tailwind.css'
+import lazyLoad from '@/directives/lazyLoad'
 
 const app = createApp(App)
+app.directive('lazyLoad', lazyLoad)
 
 app.use(pinia)
 app.use(router)
